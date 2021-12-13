@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import "./App.css";
 import firebaseConfig from "./firebaseConfig";
 import * as firebaseui from "firebaseui";
-// import firebase from "firebase";
 import firebase from "firebase/compat/app";
 
 class App extends Component {
   componentDidMount() {
-    firebase.initializeApp(firebaseConfig);
+    if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
     const uiConfig = {
       signInSuccessUrl: "http://localhost:3000/",
       signInOptions: [firebase.auth.PhoneAuthProvider.PROVIDER_ID],
@@ -19,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <h1>REACT PHONE AUTHENTICATION</h1>
+        <h1>AUTHENTICATION WITH FIREBASE</h1>
         <div id="firebaseui-auth-container"></div>
       </>
     );
