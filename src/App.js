@@ -7,9 +7,9 @@ class App extends Component {
   componentDidMount() {
     if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
     const uiConfig = {
-      signInSuccessUrl: "http://localhost:3000/",
+      signInSuccessUrl: "https://innobayt-auth.vercel.app/", // redirect url when successful: our url
       signInOptions: [firebase.auth.PhoneAuthProvider.PROVIDER_ID],
-      tosUrl: "http://localhost:3000/",
+      tosUrl: "https://innobayt-auth.vercel.app/",
     };
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     ui.start("#firebaseui-auth-container", uiConfig);
